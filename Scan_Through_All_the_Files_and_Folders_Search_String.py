@@ -1,71 +1,45 @@
-#!/usr/bin/env python
+--->Multile folder listing and searching using text                                                                                                                                                                                                                                                                                                                                                                                                   #!/usr/bin/env python
 # coding: utf-8
 
-# ### Import required modules
-
-# In[2]:
-
-
+### Import required modules
 import os
-import pandas as pd
 import shutil
+from pathlib import Path
 
+### Configuration
+search_string = "LEARNEREA"
+source_root = r"D:\Learnerea\others"
+destination_root = r"D:\Learnerea\youOutputs"
 
-# ### Listdown all the files which contains given string
+# Create destination directory if it doesn't exist
+Path(destination_root).mkdir(parents=True, exist_ok=True)
 
-# In[8]:
+### List all files containing the search string
+matching_files = []
 
+for dirpath, dirnames, filenames in os.walk(source_root):
+    for filename in filenames:
+        file_path = os.path.join(dirpath, filename)
+        try:
+            # Try to read the file as text
+            with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                if search_string in f.read():
+                    matching_files.append(file_path)
+        except (UnicodeDecodeError, PermissionError, IsADirectoryError):
+            # Skip binary files or files that can't be read
+            continue
 
-# list down all the files in the given root directory
-ListFiles = []
-SearchString = "LEARNEREA"
+### Copy matching files to destination
+for source_path in matching_files:
+    # Create destination path while preserving relative directory structure
+    relative_path = os.path.relpath(source_path, source_root)
+    destination_path = os.path.join(destination_root, relative_path)
+    
+    # Create necessary subdirectories
+    os.makedirs(os.path.dirname(destination_path), exist_ok=True)
+    
+    # Copy the file
+    shutil.copy2(source_path, destination_path)
+    print(f"Copied: {source_path} -> {destination_path}")
 
-for dirpath, dirname, filenames in os.walk(r"D:\Learnerea\others"):
-    for file in filenames:
-        ListFiles.append(os.path.join(dirpath, file))
-
-# Find out the files which contains the given string
-Source = []
-for file in ListFiles:
-    f = open(file,'r',errors='ignore')
-    if SearchString in f.read():
-        Source.append(file)
-    f.close()
-
-
-# In[17]:
-
-
-# Source
-
-
-# ### Prepare output location string
-
-# In[36]:
-
-
-# Separate the file name from the list created above
-FilesList = []
-
-for x in Source:
-    FilesList.append(x.split('\\')[-1])
-
-# Concatenate file name with output location
-dest = 'D:\Learnerea\youOutputs'
-
-destination = []
-for file in FilesList:
-    destination.append(os.path.join(dest,file))
-destination
-# shutil.copyfile(source, dest)
-
-for (x,y) in zip(Source,destination):
-    shutil.copyfile(x,y)
-
-
-# ### Copy from source to location
-
-# In[1]:
-
-
-# copy the files from source to location
+print(f"\nDone! Copied {len(matching_files)} files to {destination_root}")
