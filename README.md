@@ -85,8 +85,7 @@ pip package manager
 Installation Steps
 Clone the repository:
 
-bash
-git clone https://github.com/yourusername/file-search-csv-merger.git  
+bash 
 cd file-search-csv-merger  
 Create and activate a virtual environment (recommended):
 
