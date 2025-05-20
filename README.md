@@ -1,4 +1,5 @@
 # FILE LISTING AND SEARCHING USING TEXT
+
 📝 Table of Contents
 Overview
 
@@ -17,6 +18,7 @@ Error Handling
 UI Components
 
 License
+---------------------------------------------------------------------------------------
 
 🌟 Overview
 This is a powerful desktop application built with Python and PyQt6 that provides two main functionalities:
@@ -27,8 +29,9 @@ CSV Merger: Combine multiple CSV files into one with header validation
 
 The application features a modern dark theme UI with progress tracking and comprehensive error handling.
 
+-----------------------------------------------------------------------------------------------------------
 ✨ Features
-File Search Capabilities
+🔍 File Search Capabilities
 Search across multiple file formats:
 
 Text files (.txt)
@@ -53,7 +56,8 @@ Results display with match locations and counts
 
 Export search results to CSV
 
-CSV Merger
+-----------------------------------------------------------------------------------------------
+📊 CSV Merger
 Combine multiple CSV files
 
 Header validation to ensure consistency
@@ -61,8 +65,9 @@ Header validation to ensure consistency
 Option to include/exclude headers in output
 
 Progress tracking during merge operations
+----------------------------------------------------------------------------
 
-General Features
+🖥️ General Features
 Modern dark theme UI
 
 Responsive design with progress indicators
@@ -70,6 +75,7 @@ Responsive design with progress indicators
 Comprehensive error logging
 
 Multi-threaded operations to prevent UI freezing
+------------------------------------------------------------------------------------------------
 
 💻 Installation
 Prerequisites
@@ -81,22 +87,23 @@ Installation Steps
 Clone the repository:
 
 bash
-git clone https://github.com/yourusername/file-search-csv-merger.git
-cd file-search-csv-merger
+git clone https://github.com/yourusername/file-search-csv-merger.git  
+cd file-search-csv-merger  
 Create and activate a virtual environment (recommended):
 
 bash
-python -m venv venv
-source venv/bin/activate  # On Windows use: venv\Scripts\activate
+python -m venv venv  
+source venv/bin/activate  # On Windows use: venv\Scripts\activate  
 Install required dependencies:
 
 bash
-pip install -r requirements.txt
+pip install -r requirements.txt  
 🚀 Usage
 Running the Application
 bash
-python main.py
-File Search
+python main.py  
+------------------------------------------------------------------------------------------
+🔍 File Search
 Select input location (file or folder)
 
 Enter search text
@@ -108,8 +115,9 @@ Configure search options (case sensitivity, whole word, regex)
 (Optional) Configure file expiration settings
 
 Click "Start Search"
+-----------------------------------------------------------------------------------------------------
 
-CSV Merger
+📊 CSV Merger
 Select multiple CSV files to merge
 
 Choose output file location
@@ -117,7 +125,7 @@ Choose output file location
 Configure merge options (include headers)
 
 Click "Merge CSV Files"
-
+------------------------------------------------------------------------------------------
 🔧 Technical Details
 Architecture
 The application follows a Model-View-Controller (MVC) pattern with:
@@ -134,8 +142,8 @@ Search and merge operations run in separate QThreads
 Prevents UI freezing during long operations
 
 Progress updates communicated via signals
-
-File Processing
+-----------------------------------------------------------------------------------------------
+🛠️ File Processing
 Each file type is handled differently:
 
 File Type	Library Used	Processing Method
@@ -143,35 +151,7 @@ File Type	Library Used	Processing Method
 .docx	python-docx	Paragraph processing
 .xlsx	openpyxl	Cell-by-cell reading
 .pdf	PyPDF2	Page text extraction
-🛠️ File Processing Details
-Text Files (.txt)
-Simple line-by-line reading
-
-UTF-8 encoding with error fallback
-
-Tracks line numbers and character positions
-
-Word Documents (.docx)
-Processes each paragraph separately
-
-Maintains paragraph numbering
-
-Tracks character positions within paragraphs
-
-Excel Files (.xlsx)
-Handles all worksheets in workbook
-
-Processes each cell value as text
-
-Tracks sheet names and cell coordinates
-
-PDF Documents (.pdf)
-Extracts text from each page
-
-Handles potential text extraction issues
-
-Tracks page numbers and character positions
-
+---------------------------------------------------------------------------------------------------
 ⚠️ Error Handling
 Comprehensive Logging
 All errors logged to file_search_errors.log
@@ -193,7 +173,7 @@ Thread-safe operation stopping
 Resource cleanup on exit
 
 Partial result preservation
-
+-----------------------------------------------------------------------------------------------
 🖥️ UI Components
 Main Window
 Tabbed interface (Search/CSV Merge)
@@ -217,12 +197,3 @@ File selection controls
 Merge options
 
 Progress indicators
-
-Common Elements
-Progress bars
-
-Status messages
-
-Action buttons with consistent styling
-
- 
