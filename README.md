@@ -64,8 +64,8 @@ Header validation to ensure consistency
 Option to include/exclude headers in output
 
 Progress tracking during merge operations
-------------------------------------------------------------------------------------------------
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 🖥️ General Features
 Modern dark theme UI
 
@@ -74,8 +74,8 @@ Responsive design with progress indicators
 Comprehensive error logging
 
 Multi-threaded operations to prevent UI freezing
--------------------------------------------------------------------------------------------------------
 
+-------------------------------------------------------------------------------------------------------
 💻 Installation
 Prerequisites
 Python 3.8+
@@ -100,6 +100,7 @@ pip install -r requirements.txt
 Running the Application
 bash
 python main.py  
+
 --------------------------------------------------------------------------------------------------------------------------
 🔍 File Search
 Select input location (file or folder)
@@ -113,8 +114,8 @@ Configure search options (case sensitivity, whole word, regex)
 (Optional) Configure file expiration settings
 
 Click "Start Search"
------------------------------------------------------------------------------------------------------------------------
 
+-----------------------------------------------------------------------------------------------------------------------
 📊 CSV Merger
 Select multiple CSV files to merge
 
@@ -123,6 +124,7 @@ Choose output file location
 Configure merge options (include headers)
 
 Click "Merge CSV Files"
+
 --------------------------------------------------------------------------------------------------------
 🔧 Technical Details
 Architecture
@@ -140,6 +142,7 @@ Search and merge operations run in separate QThreads
 Prevents UI freezing during long operations
 
 Progress updates communicated via signals
+
 -------------------------------------------------------------------------------------------------------------
 🛠️ File Processing
 Each file type is handled differently:
@@ -149,6 +152,7 @@ File Type	Library Used	Processing Method
 .docx	python-docx	Paragraph processing
 .xlsx	openpyxl	Cell-by-cell reading
 .pdf	PyPDF2	Page text extraction
+
 ---------------------------------------------------------------------------------------------------
 ⚠️ Error Handling
 Comprehensive Logging
@@ -171,6 +175,7 @@ Thread-safe operation stopping
 Resource cleanup on exit
 
 Partial result preservation
+
 -----------------------------------------------------------------------------------------------
 🖥️ UI Components
 Main Window
