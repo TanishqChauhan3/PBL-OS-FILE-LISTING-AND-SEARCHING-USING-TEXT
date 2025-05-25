@@ -1,4 +1,4 @@
-# FILE LISTING AND SEARCHING USING TEXT
+# FILE EXPLORER TOOL
 -------------------------------------------------------------------
 📝 Table of Contents
 Overview
